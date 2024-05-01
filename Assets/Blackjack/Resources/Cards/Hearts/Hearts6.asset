@@ -3,14 +3,15 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c870c3eaa06c947daaa684c4fbb99caf, type: 3}
   m_Name: Hearts6
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 4004ee7b020da4694a03196b191495f2, type: 3}
+  _sprite: {fileID: 21300000, guid: 7e26598f2815e7d47bdd3cc8fd23058a, type: 3}
   _value: 6
   _isAce: 0

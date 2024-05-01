@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AEE1E2E1-754A-A9A1-AA4A-669D55BBA7CC}|Assembly-CSharp.csproj|e:\\project_unity\\gameengineproject\\\u5361\u724C2.2\\assets\\blackjack\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEE1E2E1-754A-A9A1-AA4A-669D55BBA7CC}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEE1E2E1-754A-A9A1-AA4A-669D55BBA7CC}|Assembly-CSharp.csproj|e:\\project_unity\\gameengineproject\\\u5361\u724C2.2\\assets\\blackjack\\scripts\\modify\\movetobet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEE1E2E1-754A-A9A1-AA4A-669D55BBA7CC}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\modify\\movetobet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEE1E2E1-754A-A9A1-AA4A-669D55BBA7CC}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\assets\\blackjack\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEE1E2E1-754A-A9A1-AA4A-669D55BBA7CC}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MoveToBet.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\Assets\\Blackjack\\Scripts\\Modify\\MoveToBet.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\Modify\\MoveToBet.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\Assets\\Blackjack\\Scripts\\Modify\\MoveToBet.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\Modify\\MoveToBet.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAwBYAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T14:14:18.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAAPIAAAAAAAAAAAAswAcBAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T12:14:41.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C2.2\\Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAArwD8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T12:12:45.181Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
