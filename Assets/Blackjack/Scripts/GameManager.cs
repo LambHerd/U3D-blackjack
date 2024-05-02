@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text human_health_txt, devil_health_txt, human_bet_txt;
     public Button BetBtn;
-    public TMP_InputField BetNumberInput;
     public GameObject BetPanel;
 
     public GameObject Chip_1, Chip_5, Chip_10;
@@ -45,6 +44,13 @@ public class GameManager : MonoBehaviour
 
     List<GameObject> coins = new List<GameObject>();
 
+    public Button CardBtn;
+    public GameObject CardPanel;
+    public GameObject CardPanel_pos;
+
+    List<int> skillcards=new List<int>();//0:greed 1:joker 2:life 3:power 4:sight
+    List <GameObject> skillcardsObject=new List<GameObject>();
+    public List<GameObject> SkillCardProfab;
 
     private GameState CurrentState {
         get {
@@ -82,7 +88,15 @@ public class GameManager : MonoBehaviour
 
         OnNewGameEvent();
 
+
+        //modify
         BetBtn.onClick.AddListener(OnBetBtnClick);
+        CardBtn.onClick.AddListener(OnCardBtnClick);
+
+        skillcards.Add(GetARandNum(0, 4));
+        skillcards.Add(GetARandNum(0, 4));
+        skillcards.Add(GetARandNum(0, 4));
+        skillcards.Add(GetARandNum(0, 4));
     }
 
     private void Subscriptions()
@@ -231,6 +245,12 @@ public class GameManager : MonoBehaviour
             _computer.Score++;
             human_health -= chips;
             devil_health += chips;
+
+            if (skillcards.Count < 4)
+            {
+                skillcards.Add(GetARandNum(0, 4));
+            }
+            
         }
         else
         {
@@ -280,17 +300,7 @@ public class GameManager : MonoBehaviour
             BetPanel.SetActive(false);
             ClearCoins();
         }
-        //int bet = int.Parse(BetNumberInput.text);
 
-        //if (bet > human_health-chips)
-        //{
-            //chips = human_health;
-        //}
-        //else if(bet>0)
-        //{
-            //chips += bet;
-        //}
-        //human_bet_txt.text = "bet: " + chips;
     }
 
     void CalculateCoins(int number)//modify
@@ -328,7 +338,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ClearCoins()
+    void ClearCoins()//modify
     {
         for (int i = 0;i < coins.Count; i++)
         {
@@ -337,12 +347,77 @@ public class GameManager : MonoBehaviour
         coins.Clear();
     }
 
-    void OnCoinClick(GameObject go,int coin)
+    void OnCoinClick(GameObject go,int coin)//modify
     {
         go.transform.parent= BetPanel.transform;
         go.GetComponent<MoveToBet>().StartBet(Bet_Chip_pos.transform.position);
         Bet_Chip_pos.transform.position += new Vector3(50f, 0, 0);
         chips += coin;
         human_bet_txt.text = "bet: " + chips;
+    }
+
+    void OnCardBtnClick()
+    {
+        if (CardPanel.activeInHierarchy != true)
+        {
+            CardPanel.SetActive(true);
+            ShowSkillCard();
+        }
+        else
+        {
+            CardPanel.SetActive(false);
+            ClearSkillCardObject();
+        }
+    }
+
+    void ShowSkillCard()
+    {
+        for (int i = 0;i< skillcards.Count;i++)
+        {
+            GameObject go = Instantiate(SkillCardProfab[skillcards[i]], CardPanel.transform);
+            go.transform.position = CardPanel_pos.transform.position + new Vector3(280f*i, 0, 0);
+            go.GetComponent<Tooltip>().index = i;
+            go.GetComponent<Button>().onClick.AddListener(() => OnSkillCardClick(go));
+            skillcardsObject.Add(go);
+        }
+    }
+
+    void ClearSkillCardObject()
+    {
+        for (int i = 0; i < skillcardsObject.Count; i++)
+        {
+            Destroy(skillcardsObject[i]);
+        }
+        skillcardsObject.Clear();
+    }
+    int GetARandNum(int minRange,int maxRange)
+    {
+        // 生成一个指定范围内的随机整数
+        int randomNumber = Random.Range(minRange, maxRange + 1); // maxRange + 1 用于确保包括最大值
+        Debug.Log("Random Number: " + randomNumber);
+        return randomNumber;
+    }
+
+    void OnSkillCardClick(GameObject go)
+    {
+        if (go.GetComponent<Tooltip>().used)
+        {
+            return;
+        }
+        go.GetComponent<Tooltip>().OnClickToMove();
+        int ind = go.GetComponent<Tooltip>().index;
+        go.GetComponent<Tooltip>().used = true;
+        int type = skillcards[ind];
+        skillcards.RemoveAt(ind);
+        for (int i = 0;i < skillcardsObject.Count; i++)
+        {
+            if (skillcardsObject[i].GetComponent<Tooltip>().index > ind)
+            {
+                skillcardsObject[i].GetComponent<Tooltip>().index -= 1;
+            }
+        }
+
+        //use card:  type
+        //to do
     }
 }

@@ -76,6 +76,7 @@
     <Compile Include="Assets\Blackjack\Scripts\NotificationHandler.cs" />
     <Compile Include="Assets\05_MixedRooms\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Blackjack\Scripts\Modify\Tooltip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Blackjack\Scripts\Player.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\InfiniGRASS\Version 1.9\InfiniGRASSPlanterHERO.cs" />
     <Compile Include="Assets\Blackjack\Scripts\HumanPlayer.cs" />
+    <Compile Include="Assets\Blackjack\Scripts\Modify\SettipText.cs" />
     <Compile Include="Assets\Blackjack\Scripts\PoolingSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\InfiniGRASS\Version 1.5\Scripts_Shaders\Vertex colored\ProceduralNoiseINFINIGRASS.cs" />
