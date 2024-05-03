@@ -1,42 +1,54 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class Hand
 {
     private List<CardDisplay> _displays;
 
-    private IEnumerable<Card> Cards {
-        get {
+    private IEnumerable<Card> Cards
+    {
+        get
+        {
             return _displays.Select(s => s.Card);
         }
     }
 
-    private IEnumerable<Card> AcesCards {
-        get {
+    private IEnumerable<Card> AcesCards
+    {
+        get
+        {
             return _displays.Select(s => s.Card).Where(w => w.IsAce);
         }
     }
 
-    public int Count {
-        get {
+    public int Count
+    {
+        get
+        {
             return _displays.Count;
         }
     }
 
-    public int AcesCount {
-        get {
+    public int AcesCount
+    {
+        get
+        {
             return AcesCards.Count();
         }
     }
 
-    public int TotalValue {
-        get {
+    public int TotalValue
+    {
+        get
+        {
             IEnumerable<Card> cards = Cards;
 
             int totalValue = cards.Sum(s => s.Value);
             int acesCount = cards.Count(c => c.IsAce);
 
-            while (acesCount-- > 0 && totalValue > 21) {
+            while (acesCount-- > 0 && totalValue > 21)
+            {
                 totalValue -= 10;
             }
 
@@ -44,8 +56,10 @@ public class Hand
         }
     }
 
-    public int AcesTotalValue {
-        get {
+    public int AcesTotalValue
+    {
+        get
+        {
             IEnumerable<Card> cards = Cards;
             int totalValue = cards.Sum(s => s.Value);
 
@@ -53,7 +67,8 @@ public class Hand
             int acesTotalValue = acesCards.Sum(s => s.Value);
             int acesCount = acesCards.Count();
 
-            while (acesCount-- > 0 && totalValue > 21) {
+            while (acesCount-- > 0 && totalValue > 21)
+            {
                 totalValue -= 10;
                 acesTotalValue -= 10;
             }
@@ -78,8 +93,10 @@ public class Hand
 
     public void Reset(PoolingSystem poolingSystem)
     {
-        if (_displays != null) {
-            for (int i = 0; i < _displays.Count; i++) {
+        if (_displays != null)
+        {
+            for (int i = 0; i < _displays.Count; i++)
+            {
                 _displays[i].Reset();
 
                 poolingSystem.Enqueue(_displays[i]);
@@ -94,9 +111,21 @@ public class Hand
         _displays.Add(display);
     }
 
+    //去掉最后一张手牌，将手牌丢回牌堆，位置挪开
+    public void RemoveCard(PoolingSystem poolingSystem)
+    {
+        Vector3 position = new Vector3(20, 20, 20);
+        CardDisplay display = _displays[_displays.Count - 1];
+        display.transform.SetParent(null);
+        display.transform.position = position;
+        poolingSystem.Enqueue(display);
+
+        _displays.Remove(display);
+    }
     public void Show()
     {
-        for (int i = 0; i < _displays.Count; i++) {
+        for (int i = 0; i < _displays.Count; i++)
+        {
             _displays[i].FaceUp();
         }
     }

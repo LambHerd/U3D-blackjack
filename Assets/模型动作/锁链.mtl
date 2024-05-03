@@ -1,0 +1,24 @@
+# Blender 4.0.2 MTL File: 'None'
+# www.blender.org
+
+newmtl algema1
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd torch-and-handcuffs/source/jaComTexturasProntoPraExportar/E:/arquivosSMD/SMD/12[ouvinte]/expMultimidiaI/trabalho/texturizarModelagem/assets[Alessander]/algemas/texturas/Algemas masmorra_Material_BaseColor.png
+map_Ns torch-and-handcuffs/source/jaComTexturasProntoPraExportar/E:/arquivosSMD/SMD/12[ouvinte]/expMultimidiaI/trabalho/texturizarModelagem/assets[Alessander]/algemas/texturas/Algemas masmorra_Material_Roughness.png
+map_refl torch-and-handcuffs/source/jaComTexturasProntoPraExportar/E:/arquivosSMD/SMD/12[ouvinte]/expMultimidiaI/trabalho/texturizarModelagem/assets[Alessander]/algemas/texturas/Algemas masmorra_Material_Metallic.png
+
+newmtl algema2
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd torch-and-handcuffs/source/jaComTexturasProntoPraExportar/E:/arquivosSMD/SMD/12[ouvinte]/expMultimidiaI/trabalho/texturizarModelagem/assets[Alessander]/algemas/texturas/Algemas masmorra_Material.001_BaseColor.png
+map_Ns torch-and-handcuffs/source/jaComTexturasProntoPraExportar/E:/arquivosSMD/SMD/12[ouvinte]/expMultimidiaI/trabalho/texturizarModelagem/assets[Alessander]/algemas/texturas/Algemas masmorra_Material.001_Roughness.png
+map_refl torch-and-handcuffs/source/jaComTexturasProntoPraExportar/E:/arquivosSMD/SMD/12[ouvinte]/expMultimidiaI/trabalho/texturizarModelagem/assets[Alessander]/algemas/texturas/Algemas masmorra_Material.001_Metallic.png

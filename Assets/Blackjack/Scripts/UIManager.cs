@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
         _newGameButton.interactable = (action == GameAction.NewGame);
         if (action == GameAction.NewGame)
         {
-            DialogueTxt.text = "Satan bless, I still have another round. . . Another opportunity. . .";
+            //DialogueTxt.text = "Satan bless, I still have another round. . . Another opportunity. . .";
         }
     }
 

@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|e:\\project_unity\\gameengineproject\\\u5361\u724C3\\assets\\blackjack\\scripts\\modify\\escpanelcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\modify\\escpanelcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\assets\\blackjack\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\assets\\scriptsforscene4\\dialoguechoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scriptsforscene4\\dialoguechoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\assets\\blackjack\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\assets\\scriptsforscene4\\fadeinpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scriptsforscene4\\fadeinpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\assets\\scriptsforscene4\\fistmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E57F9B8-87E9-28D6-4469-0978AA2BC1B1}|Assembly-CSharp.csproj|solutionrelative:assets\\scriptsforscene4\\fistmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ESCPanelControl.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\Blackjack\\Scripts\\Modify\\ESCPanelControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\Modify\\ESCPanelControl.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\Blackjack\\Scripts\\Modify\\ESCPanelControl.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\Modify\\ESCPanelControl.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAwwB0AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T13:04:06.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\UIManager.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAAwE8AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T12:36:43.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAANQAAAAAAAAAAAAswN8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T12:36:21.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FadeInPanel.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\ScriptsForScene4\\FadeInPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\ScriptsForScene4\\FadeInPanel.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\ScriptsForScene4\\FadeInPanel.cs",
+              "RelativeToolTip": "Assets\\ScriptsForScene4\\FadeInPanel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T11:53:36.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DialogueChoice.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\ScriptsForScene4\\DialogueChoice.cs",
+              "RelativeDocumentMoniker": "Assets\\ScriptsForScene4\\DialogueChoice.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\ScriptsForScene4\\DialogueChoice.cs",
+              "RelativeToolTip": "Assets\\ScriptsForScene4\\DialogueChoice.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T08:54:47.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FistMove.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\ScriptsForScene4\\FistMove.cs",
+              "RelativeDocumentMoniker": "Assets\\ScriptsForScene4\\FistMove.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\\u5361\u724C3\\Assets\\ScriptsForScene4\\FistMove.cs",
+              "RelativeToolTip": "Assets\\ScriptsForScene4\\FistMove.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAUwFEAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T08:23:34.715Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

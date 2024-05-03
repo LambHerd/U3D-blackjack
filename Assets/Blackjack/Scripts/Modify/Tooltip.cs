@@ -13,6 +13,7 @@ public class Tooltip : MonoBehaviour, IPointerExitHandler, IPointerMoveHandler,I
 
     public int index;
     public bool used = false;
+    public int type;
 
     // 鼠标进入UI Panel时调用
     public void OnPointerEnter(PointerEventData eventData)

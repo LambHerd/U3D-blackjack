@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,42 +43,87 @@ public class GameManager : MonoBehaviour
     public GameObject BetPanel;
 
     public GameObject Chip_1, Chip_5, Chip_10;
-    public GameObject Chip_pos,Bet_Chip_pos;
+    public GameObject Chip_pos, Bet_Chip_pos;
 
     List<GameObject> coins = new List<GameObject>();
 
     public Button CardBtn;
     public GameObject CardPanel;
-    public GameObject CardPanel_pos;
 
-    List<int> skillcards=new List<int>();//0:greed 1:joker 2:life 3:power 4:sight
-    List <GameObject> skillcardsObject=new List<GameObject>();
+    List<int> skillcards = new List<int>();//0:greed 1:joker 2:life 3:power 4:sight
+    List<GameObject> skillcardsObject = new List<GameObject>();
     public List<GameObject> SkillCardProfab;
 
-    private GameState CurrentState {
-        get {
+    bool isGreedyCardActive = true;
+
+    public GameObject FadePanel,ESCPanel,CheatPanel;
+    public Button CheatHumanWinBtn, CheatDevilWinBtn;
+
+    //modify
+    public TMP_Text HumanDialogueTxt;
+    public TMP_Text DevilDialogueTxt;
+
+    private void Update()
+    {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (ESCPanel.activeInHierarchy != true)
+            {
+                ESCPanel.SetActive(true);
+            }
+            else
+            {
+                ESCPanel.SetActive(false);
+            }
+            
+        }
+        if (UnityEngine.Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            if (CheatPanel.activeInHierarchy != true)
+            {
+                CheatPanel.SetActive(true);
+            }
+            else
+            {
+                CheatPanel.SetActive(false);
+            }
+        }
+    }
+
+    private GameState CurrentState
+    {
+        get
+        {
             return _currentState;
         }
-        set {
-            if (_currentState != value) {
+        set
+        {
+            if (_currentState != value)
+            {
                 _currentState = value;
 
-                if (OnGameStateChanged != null) {
+                if (OnGameStateChanged != null)
+                {
                     OnGameStateChanged(_currentState);
                 }
             }
         }
     }
 
-    private GameAction CurrentAction {
-        get {
+    private GameAction CurrentAction
+    {
+        get
+        {
             return _currentAction;
         }
-        set {
-            if (_currentAction != value) {
+        set
+        {
+            if (_currentAction != value)
+            {
                 _currentAction = value;
 
-                if (OnGameActionChanged != null) {
+                if (OnGameActionChanged != null)
+                {
                     OnGameActionChanged(_currentAction);
                 }
             }
@@ -93,10 +141,19 @@ public class GameManager : MonoBehaviour
         BetBtn.onClick.AddListener(OnBetBtnClick);
         CardBtn.onClick.AddListener(OnCardBtnClick);
 
-        skillcards.Add(GetARandNum(0, 4));
-        skillcards.Add(GetARandNum(0, 4));
-        skillcards.Add(GetARandNum(0, 4));
-        skillcards.Add(GetARandNum(0, 4));
+
+        //skillcards.Add(GetARandNum(0, 4));
+        //skillcards.Add(GetARandNum(0, 4));
+        //skillcards.Add(GetARandNum(0, 4));
+        //skillcards.Add(GetARandNum(0, 4));
+
+        skillcards.Add(0);
+        skillcards.Add(1);
+        skillcards.Add(2);
+        skillcards.Add(3);
+
+        CheatHumanWinBtn.onClick.AddListener(OnCheatHumanWinBtnClick); 
+        CheatDevilWinBtn.onClick.AddListener(OnCheatDevilWinBtnClick);
     }
 
     private void Subscriptions()
@@ -162,7 +219,8 @@ public class GameManager : MonoBehaviour
 
     private void OnExitEvent()
     {
-        if (_computerTurnCoroutine != null) {
+        if (_computerTurnCoroutine != null)
+        {
             StopCoroutine(_computerTurnCoroutine);
         }
 
@@ -175,7 +233,8 @@ public class GameManager : MonoBehaviour
 
         _computer.UpdateBehaviour(_human.Hand);
 
-        if (_computer.IsHitting) {
+        if (_computer.IsHitting)
+        {
             _dealer.GiveCard(_computer);
         }
 
@@ -189,45 +248,58 @@ public class GameManager : MonoBehaviour
         int computerTotalValue = _computer.Hand.TotalValue;
         int humanTotalValue = _human.Hand.TotalValue;
 
-        if (_computer.IsHitting || _human.IsHitting) {
-            if (humanTotalValue == 21 && computerTotalValue == 21) {
+        if (_computer.IsHitting || _human.IsHitting)
+        {
+            if (humanTotalValue == 21 && computerTotalValue == 21)
+            {
                 CurrentState = GameState.Draw;
             }
-            else if (computerTotalValue > 21 || humanTotalValue == 21 || (humanTotalValue > computerTotalValue && !_computer.IsHitting)) {
+            else if (computerTotalValue > 21 || humanTotalValue == 21 || (humanTotalValue > computerTotalValue && !_computer.IsHitting))
+            {
                 CurrentState = GameState.HumanWon;
             }
-            else if (humanTotalValue > 21 || computerTotalValue == 21 || (computerTotalValue > humanTotalValue && !_human.IsHitting)) {
+            else if (humanTotalValue > 21 || computerTotalValue == 21 || (computerTotalValue > humanTotalValue && !_human.IsHitting))
+            {
                 CurrentState = GameState.ComputerWon;
             }
-            else {
+            else
+            {
                 moveToNextState = true;
             }
         }
-        else if (!_computer.IsHitting && !_human.IsHitting) {
-            if (computerTotalValue > humanTotalValue) {
+        else if (!_computer.IsHitting && !_human.IsHitting)
+        {
+            if (computerTotalValue > humanTotalValue)
+            {
                 CurrentState = GameState.ComputerWon;
             }
-            else if (humanTotalValue > computerTotalValue) {
+            else if (humanTotalValue > computerTotalValue)
+            {
                 CurrentState = GameState.HumanWon;
             }
-            else {
+            else
+            {
                 CurrentState = GameState.Draw;
             }
         }
 
-        if (moveToNextState) {
-            if ((nextState == GameState.HumanTurn && _human.IsHitting) || (nextState == GameState.ComputerTurn && !_computer.IsHitting)) {
+        if (moveToNextState)
+        {
+            if ((nextState == GameState.HumanTurn && _human.IsHitting) || (nextState == GameState.ComputerTurn && !_computer.IsHitting))
+            {
                 CurrentState = GameState.HumanTurn;
                 CurrentAction = GameAction.HitAndStand;
             }
-            else {
+            else
+            {
                 CurrentState = GameState.ComputerTurn;
                 CurrentAction = GameAction.None;
 
                 _computerTurnCoroutine = StartCoroutine(OnComputerTurn());
             }
         }
-        else {
+        else
+        {
             EndGame();
         }
     }
@@ -236,34 +308,57 @@ public class GameManager : MonoBehaviour
     {
         _computer.Hand.Show();
 
-        if (CurrentState == GameState.HumanWon) {
+        if (CurrentState == GameState.HumanWon)
+        {
             _human.Score++;
             human_health += chips;
             devil_health -= chips;
+            HumanDialogueTxt.text = "I won. Devil, don’t you think this is simple?";
+            DevilDialogueTxt.text = "You are a lucky man, human.";
+            if (isGreedyCardActive)
+            {
+                human_health += chips;
+                devil_health -= chips;
+                isGreedyCardActive = false;
+                HumanDialogueTxt.text = "Pay twice as much as you bet. You're bleeding, Devil.";
+                DevilDialogueTxt.text = "The devil will make you pay more.";
+            }
         }
-        else if (CurrentState == GameState.ComputerWon) {
+        else if (CurrentState == GameState.ComputerWon)
+        {
             _computer.Score++;
             human_health -= chips;
             devil_health += chips;
+            HumanDialogueTxt.text = "Satan bless.";
+            DevilDialogueTxt.text = "The Devil take the hindmost.";
 
             if (skillcards.Count < 4)
             {
                 skillcards.Add(GetARandNum(0, 4));
             }
-            
+
         }
         else
         {
-
+            HumanDialogueTxt.text = "Almost.";
+            DevilDialogueTxt.text = "Lucky.";
         }
 
         if (human_health <= 0)
         {
             //end:human lose
+            HumanDialogueTxt.text = "Oh, Satan, NO!";
+            DevilDialogueTxt.text = "See you soon, human...";
+            FadePanel.GetComponent<FadeInPanel>().TransToScene = "001";
+            FadePanel.SetActive(true);
         }
         else if (devil_health <= 0)
         {
             //end:devil lose
+            HumanDialogueTxt.text = "What do you say now, Devil?";
+            DevilDialogueTxt.text = "Game over now. . . .";
+            FadePanel.GetComponent<FadeInPanel>().TransToScene = "004";
+            FadePanel.SetActive(true);
         }
         else
         {
@@ -271,12 +366,12 @@ public class GameManager : MonoBehaviour
             {
                 human_health = 100;
             }
-            if(devil_health > 100)
+            if (devil_health > 100)
             {
                 devil_health = 100;
             }
-            
-            human_health_txt.text = human_health+"";
+
+            human_health_txt.text = human_health + "";
             devil_health_txt.text = devil_health + "";
         }
 
@@ -316,15 +411,15 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < tens; i++)
         {
-            GameObject go = Instantiate(Chip_10, Chip_pos.transform.position+new Vector3(x_pos+110f*i, y_pos,0), Quaternion.identity);
-            go.transform.parent=BetPanel.transform;
-            go.GetComponent<Button>().onClick.AddListener(() => OnCoinClick(go,10));
+            GameObject go = Instantiate(Chip_10, Chip_pos.transform.position + new Vector3(x_pos + 110f * i, y_pos, 0), Quaternion.identity);
+            go.transform.parent = BetPanel.transform;
+            go.GetComponent<Button>().onClick.AddListener(() => OnCoinClick(go, 10));
             coins.Add(go);
         }
 
         for (int i = 0; i < fives; i++)
         {
-            GameObject go = Instantiate(Chip_5, Chip_pos.transform.position + new Vector3(x_pos + 110f * i, y_pos-120f, 0), Quaternion.identity);
+            GameObject go = Instantiate(Chip_5, Chip_pos.transform.position + new Vector3(x_pos + 110f * i, y_pos - 120f, 0), Quaternion.identity);
             go.transform.parent = BetPanel.transform;
             go.GetComponent<Button>().onClick.AddListener(() => OnCoinClick(go, 5));
             coins.Add(go);
@@ -340,16 +435,16 @@ public class GameManager : MonoBehaviour
 
     void ClearCoins()//modify
     {
-        for (int i = 0;i < coins.Count; i++)
+        for (int i = 0; i < coins.Count; i++)
         {
             Destroy(coins[i]);
         }
         coins.Clear();
     }
 
-    void OnCoinClick(GameObject go,int coin)//modify
+    void OnCoinClick(GameObject go, int coin)//modify
     {
-        go.transform.parent= BetPanel.transform;
+        go.transform.parent = BetPanel.transform;
         go.GetComponent<MoveToBet>().StartBet(Bet_Chip_pos.transform.position);
         Bet_Chip_pos.transform.position += new Vector3(50f, 0, 0);
         chips += coin;
@@ -372,10 +467,9 @@ public class GameManager : MonoBehaviour
 
     void ShowSkillCard()
     {
-        for (int i = 0;i< skillcards.Count;i++)
+        for (int i = 0; i < skillcards.Count; i++)
         {
             GameObject go = Instantiate(SkillCardProfab[skillcards[i]], CardPanel.transform);
-            go.transform.position = CardPanel_pos.transform.position + new Vector3(280f*i, 0, 0);
             go.GetComponent<Tooltip>().index = i;
             go.GetComponent<Button>().onClick.AddListener(() => OnSkillCardClick(go));
             skillcardsObject.Add(go);
@@ -390,7 +484,7 @@ public class GameManager : MonoBehaviour
         }
         skillcardsObject.Clear();
     }
-    int GetARandNum(int minRange,int maxRange)
+    int GetARandNum(int minRange, int maxRange)
     {
         // 生成一个指定范围内的随机整数
         int randomNumber = Random.Range(minRange, maxRange + 1); // maxRange + 1 用于确保包括最大值
@@ -409,7 +503,7 @@ public class GameManager : MonoBehaviour
         go.GetComponent<Tooltip>().used = true;
         int type = skillcards[ind];
         skillcards.RemoveAt(ind);
-        for (int i = 0;i < skillcardsObject.Count; i++)
+        for (int i = 0; i < skillcardsObject.Count; i++)
         {
             if (skillcardsObject[i].GetComponent<Tooltip>().index > ind)
             {
@@ -419,5 +513,145 @@ public class GameManager : MonoBehaviour
 
         //use card:  type
         //to do
+        // 0:greed 1:joker 2:life 3:power 4:sight
+        if (type == 0)
+        {
+            //玩家如果赢了，电脑跟注两倍
+            GreedCard();
+        }
+        else if (type == 1)
+        {
+            //出3选1，替换你最新那张手牌
+            JokerCard();
+
+            //Invoke("CloseCardPanel", 0.2f);
+
+        }
+        else if (type == 2)
+        {
+            //生命值回100
+            LifeCard();
+
+        }
+        else if (type == 3)
+        {
+            //强迫对面摸一张牌
+            PowerCard();
+
+        }
+        else if (type == 4)
+        {
+            //让对面首张手牌翻开
+            SightCard();
+
+        }
+
+
+    }
+
+    void CloseCardPanel()
+    {
+        CardPanel.SetActive(false);
+        ClearSkillCardObject();
+    }
+
+    //强迫对面摸一张牌
+    void PowerCard()
+    {
+        Debug.Log("PowerCard");
+        _dealer.GiveCard(_computer);
+        _computer.UpdateBehaviour(_human.Hand);
+
+    }
+
+
+    //让对面首张手牌翻开
+    void SightCard()
+    {
+        Debug.Log("SightCard");
+        _computer.Hand.Show();
+    }
+
+
+    //出3选1，替换你最新那张手牌
+    void JokerCard()
+    {
+        Debug.Log("JokerCard");
+
+        //使用dealer生成3张（很多方法都在dealer里面，得注意看）
+        _dealer.ThreenewCards(_human);
+        //开始协程
+        StartCoroutine(DoRaycast());
+    }
+
+    //由于3张卡不是按钮，不能添加监听，选择用协程来实现等待点击
+    IEnumerator DoRaycast()
+    {
+        Debug.Log("in coroutine");
+        while (true)
+        {
+            if (UnityEngine.Input.GetMouseButtonDown(0))
+            {
+                // 发射射线
+                Ray ray;
+                //Debug.Log(UnityEngine.Input.mousePosition);
+
+                ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    //print("ray");
+                    GameObject carddisplay = hit.collider.gameObject;
+                    CardDisplay display = carddisplay.GetComponent<CardDisplay>();                   
+
+                    if (display != null)
+                    {
+                        //print("display");
+                        Transform parent = _human.transform;
+                        Vector3 position = parent.position;
+                        Debug.Log(parent.childCount);
+
+                        position.z -= (parent.childCount - 1) * 0.1f;
+                        Debug.Log(position.z);
+                        display.transform.position = position;
+
+                        _dealer.Remove3Cards(_human, display);
+
+                        yield break;
+                    }
+
+                }
+
+            }
+            yield return null;
+        }
+    }
+
+    void LifeCard()
+    {
+        human_health = Mathf.Min(human_health + 50, 100);
+        human_health_txt.text = human_health.ToString();
+    }
+
+    void GreedCard()
+    {
+        isGreedyCardActive = true;
+    }
+
+
+    void OnCheatHumanWinBtnClick()
+    {
+        human_health = 100;
+        devil_health = 0;
+        human_health_txt.text = human_health.ToString();
+        devil_health_txt.text = devil_health.ToString();
+    }
+    void OnCheatDevilWinBtnClick()
+    {
+        human_health = 0;
+        devil_health = 100;
+        human_health_txt.text = human_health.ToString();
+        devil_health_txt.text = devil_health.ToString();
     }
 }

@@ -34,10 +34,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 252, y: 42}
-  m_SizeDelta: {x: -993.94, y: -324.34}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 825.9556, y: -468}
+  m_SizeDelta: {x: 446.7137, y: 636.6077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5014358224821694840
 CanvasRenderer:
@@ -69,13 +69,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: f1c9b11fff859cd4c986ebf9f77ae04c, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &7302067179447125473
 MonoBehaviour:
@@ -89,11 +89,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcc54e381a525f45bb22e4e0e8c4308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordPanel: {fileID: 1820718437312427277, guid: 072fd23e00a7a2c4f8a2c5828ab104f3,
+  wordPanel: {fileID: 7258738779752464560, guid: 8c1e638b11a107c4db3b6132024ec987,
     type: 3}
   wordTextTxt: The opponent must draw a card in the next round.
   index: 0
   used: 0
+  type: 0
 --- !u!114 &-1533613512281724949
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,10 +34,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -145, y: -56.295}
-  m_SizeDelta: {x: -993.94, y: -324.34}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 757.9556, y: -513}
+  m_SizeDelta: {x: 349.8463, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3270269636533211841
 CanvasRenderer:
@@ -69,13 +69,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 841ac04393f967448a10093b02c979b0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &4083977172109940654
 MonoBehaviour:
@@ -89,9 +89,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcc54e381a525f45bb22e4e0e8c4308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wordPanel: {fileID: 1820718437312427277, guid: 072fd23e00a7a2c4f8a2c5828ab104f3,
+  wordPanel: {fileID: 7258738779752464560, guid: 8c1e638b11a107c4db3b6132024ec987,
     type: 3}
   wordTextTxt: Gain unlimited chips on the authority until the end of the game.
+  index: 0
+  used: 0
+  type: 0
 --- !u!114 &-6915350905949200783
 MonoBehaviour:
   m_ObjectHideFlags: 0
