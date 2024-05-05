@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\assets\\blackjack\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|e:\\project_unity\\gameengineproject\\u3d-blackjack-final\\u3d-blackjack\\assets\\blackjack\\scripts\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|e:\\project_unity\\gameengineproject\\u3d-blackjack-final\\u3d-blackjack\\assets\\blackjack\\scripts\\poolingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\poolingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|e:\\project_unity\\gameengineproject\\u3d-blackjack-final\\u3d-blackjack\\assets\\blackjack\\scripts\\carddisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C894F75-0E36-45BA-6FD3-875776BB3221}|Assembly-CSharp.csproj|solutionrelative:assets\\blackjack\\scripts\\carddisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PoolingSystem.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\PoolingSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\PoolingSystem.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\PoolingSystem.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\PoolingSystem.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAIA0wCcAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-04T12:35:28.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CardDisplay.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\CardDisplay.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\CardDisplay.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\CardDisplay.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\CardDisplay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-04T12:32:48.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Card.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\Card.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\Card.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\Card.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\Card.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-04T12:32:27.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "ToolTip": "E:\\project_unity\\GameEngineProject\\U3D-blackjack-final\\U3D-blackjack\\Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Blackjack\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAADwvzIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-04T04:38:53.996Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -18,6 +18,8 @@ public class FistMove : MonoBehaviour
 
     float elapsedTime=0, startTime, stopTime;
 
+    bool GotHeart = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,8 +62,12 @@ public class FistMove : MonoBehaviour
         }
         else if(type==0)
         {
-            StartTiming();
-            InvokeDialogueType2();
+            if(!GotHeart)
+            {
+                StartTiming();
+                InvokeDialogueType2();
+            }
+            
         }
     }
 
@@ -75,11 +81,12 @@ public class FistMove : MonoBehaviour
 
             print(elapsedTime);
 
-            if(elapsedTime > 4f)
+            if(elapsedTime > 2.5f)
             {
                 ItemGet.SetActive(true);
                 HumanDialogue.text = "Wow, look what I got.";
                 DevilDialogue.text = "Ah, the pain. . .";
+                GotHeart=true;
                 Invoke("StopFistMove", 3f);
             }
         }

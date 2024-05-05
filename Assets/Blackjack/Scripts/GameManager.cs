@@ -54,14 +54,17 @@ public class GameManager : MonoBehaviour
     List<GameObject> skillcardsObject = new List<GameObject>();
     public List<GameObject> SkillCardProfab;
 
-    bool isGreedyCardActive = true;
+    bool isGreedyCardActive = false;
 
     public GameObject FadePanel,ESCPanel,CheatPanel;
-    public Button CheatHumanWinBtn, CheatDevilWinBtn;
+    public Button CheatHumanWinBtn, CheatDevilWinBtn,CheatAddCardBtn;
+    public TMP_InputField CheatAddCardInput;
 
     //modify
     public TMP_Text HumanDialogueTxt;
     public TMP_Text DevilDialogueTxt;
+
+    bool DevilSuddenWin = false, HumanSuddenWin = false;
 
     private void Update()
     {
@@ -154,6 +157,7 @@ public class GameManager : MonoBehaviour
 
         CheatHumanWinBtn.onClick.AddListener(OnCheatHumanWinBtnClick); 
         CheatDevilWinBtn.onClick.AddListener(OnCheatDevilWinBtnClick);
+        CheatAddCardBtn.onClick.AddListener(OnCheatAddCardBtnClick);
     }
 
     private void Subscriptions()
@@ -248,18 +252,25 @@ public class GameManager : MonoBehaviour
         int computerTotalValue = _computer.Hand.TotalValue;
         int humanTotalValue = _human.Hand.TotalValue;
 
+        print("computerTotalValue:" + computerTotalValue);
+        print("humanTotalValue:" + humanTotalValue);
+
         if (_computer.IsHitting || _human.IsHitting)
         {
+            print("if (_computer.IsHitting || _human.IsHitting)");
             if (humanTotalValue == 21 && computerTotalValue == 21)
             {
+                print("if (humanTotalValue == 21 && computerTotalValue == 21)");
                 CurrentState = GameState.Draw;
             }
             else if (computerTotalValue > 21 || humanTotalValue == 21 || (humanTotalValue > computerTotalValue && !_computer.IsHitting))
             {
+                print("else if (computerTotalValue > 21 || humanTotalValue == 21 || (humanTotalValue > computerTotalValue && !_computer.IsHitting))");
                 CurrentState = GameState.HumanWon;
             }
             else if (humanTotalValue > 21 || computerTotalValue == 21 || (computerTotalValue > humanTotalValue && !_human.IsHitting))
             {
+                print("else if (humanTotalValue > 21 || computerTotalValue == 21 || (computerTotalValue > humanTotalValue && !_human.IsHitting))");
                 CurrentState = GameState.ComputerWon;
             }
             else
@@ -269,13 +280,16 @@ public class GameManager : MonoBehaviour
         }
         else if (!_computer.IsHitting && !_human.IsHitting)
         {
-            if (computerTotalValue > humanTotalValue)
+            print("else if (!_computer.IsHitting && !_human.IsHitting)");
+            if (computerTotalValue > 21 || humanTotalValue > computerTotalValue)
             {
-                CurrentState = GameState.ComputerWon;
-            }
-            else if (humanTotalValue > computerTotalValue)
-            {
+                print("else if (computerTotalValue > 21 || humanTotalValue > computerTotalValue)");
                 CurrentState = GameState.HumanWon;
+            }
+            else if (humanTotalValue > 21 || computerTotalValue > humanTotalValue)
+            {
+                print("if (humanTotalValue > 21 || computerTotalValue > humanTotalValue)");
+                CurrentState = GameState.ComputerWon;
             }
             else
             {
@@ -303,18 +317,41 @@ public class GameManager : MonoBehaviour
             EndGame();
         }
     }
-
+    
     private void EndGame()//modify
     {
         _computer.Hand.Show();
+
+        print("CurrentState: " + CurrentState);
+
+        //cheat part
+        if (HumanSuddenWin)
+        {
+            //end:devil lose
+            HumanDialogueTxt.text = "What do you say now, Devil?";
+            DevilDialogueTxt.text = "Game over now. . . .";
+            _audioManager.PlayDialogue("demondie");
+            FadePanel.GetComponent<FadeInPanel>().TransToScene = "004";
+            FadePanel.SetActive(true);
+            return;
+        }
+        else if (DevilSuddenWin)
+        {
+            //end:human lose
+            HumanDialogueTxt.text = "Oh, Satan, NO!";
+            DevilDialogueTxt.text = "See you soon, human...";
+            _audioManager.PlayDialogue("humandie");
+            FadePanel.GetComponent<FadeInPanel>().TransToScene = "001";
+            FadePanel.SetActive(true);
+        }
+        //cheat part end
 
         if (CurrentState == GameState.HumanWon)
         {
             _human.Score++;
             human_health += chips;
             devil_health -= chips;
-            HumanDialogueTxt.text = "I won. Devil, don’t you think this is simple?";
-            DevilDialogueTxt.text = "You are a lucky man, human.";
+            
             if (isGreedyCardActive)
             {
                 human_health += chips;
@@ -322,6 +359,13 @@ public class GameManager : MonoBehaviour
                 isGreedyCardActive = false;
                 HumanDialogueTxt.text = "Pay twice as much as you bet. You're bleeding, Devil.";
                 DevilDialogueTxt.text = "The devil will make you pay more.";
+                _audioManager.PlayDialogue("GreedyCardActive");
+            }
+            else
+            {
+                HumanDialogueTxt.text = "I won. Devil, don’t you think this is simple?";
+                DevilDialogueTxt.text = "You are a lucky man, human.";
+                _audioManager.PlayDialogue("HumanWon");
             }
         }
         else if (CurrentState == GameState.ComputerWon)
@@ -331,6 +375,7 @@ public class GameManager : MonoBehaviour
             devil_health += chips;
             HumanDialogueTxt.text = "Satan bless.";
             DevilDialogueTxt.text = "The Devil take the hindmost.";
+            _audioManager.PlayDialogue("ComputerWon");
 
             if (skillcards.Count < 4)
             {
@@ -349,6 +394,7 @@ public class GameManager : MonoBehaviour
             //end:human lose
             HumanDialogueTxt.text = "Oh, Satan, NO!";
             DevilDialogueTxt.text = "See you soon, human...";
+            _audioManager.PlayDialogue("humandie");
             FadePanel.GetComponent<FadeInPanel>().TransToScene = "001";
             FadePanel.SetActive(true);
         }
@@ -357,6 +403,7 @@ public class GameManager : MonoBehaviour
             //end:devil lose
             HumanDialogueTxt.text = "What do you say now, Devil?";
             DevilDialogueTxt.text = "Game over now. . . .";
+            _audioManager.PlayDialogue("demondie");
             FadePanel.GetComponent<FadeInPanel>().TransToScene = "004";
             FadePanel.SetActive(true);
         }
@@ -642,16 +689,31 @@ public class GameManager : MonoBehaviour
 
     void OnCheatHumanWinBtnClick()
     {
-        human_health = 100;
-        devil_health = 0;
-        human_health_txt.text = human_health.ToString();
-        devil_health_txt.text = devil_health.ToString();
+        //human_health = 100;
+        //devil_health = 0;
+        //human_health_txt.text = human_health.ToString();
+        //devil_health_txt.text = devil_health.ToString();
+        HumanSuddenWin = true;
     }
     void OnCheatDevilWinBtnClick()
     {
-        human_health = 0;
-        devil_health = 100;
-        human_health_txt.text = human_health.ToString();
-        devil_health_txt.text = devil_health.ToString();
+        //human_health = 0;
+        //devil_health = 100;
+        //human_health_txt.text = human_health.ToString();
+        //devil_health_txt.text = devil_health.ToString();
+        DevilSuddenWin = true;
+    }
+
+    void OnCheatAddCardBtnClick()
+    {
+        int type = int.Parse(CheatAddCardInput.text);
+        if (skillcards.Count == 4)
+        {
+            skillcards[3] = type;
+        }
+        else if (skillcards.Count < 4)
+        {
+            skillcards.Add(type);
+        }
     }
 }

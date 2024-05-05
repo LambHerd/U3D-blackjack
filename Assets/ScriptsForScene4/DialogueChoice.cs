@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DialogueChoice : MonoBehaviour
 {
+    [SerializeField]
+    private AudioManager _audioManager;
     int step = 0;
     public Button DeadBtn, NoDeadBtn;
     public TMP_Text HumanDialogue, DevilDialogue;
@@ -32,6 +34,7 @@ public class DialogueChoice : MonoBehaviour
         {
             DevilDialogue.text = "The devil loves to share. . it's up to you. .";
             HumanDialogue.text = "Few humans trust demons. You know, right?";
+            _audioManager.PlayDialogue("killstep1");
             DeadBtn.GetComponentInChildren<TMP_Text>().text = "I can still get it if I kill you.";
             NoDeadBtn.GetComponentInChildren<TMP_Text>().text = "Maybe I'll give you a chance. . .";
             step++;
@@ -42,6 +45,7 @@ public class DialogueChoice : MonoBehaviour
             //print(step);
             DevilDialogue.text = "You are a lot like me. . .";
             HumanDialogue.text = "That's exactly what I am.";
+            _audioManager.PlayDialogue("killstep2");
             DeadBtn.GetComponentInChildren<TMP_Text>().text = "Time to die.";
             NoDeadBtn.GetComponentInChildren<TMP_Text>().text = ". . .";
             NoDeadBtn.interactable = false;
@@ -66,6 +70,7 @@ public class DialogueChoice : MonoBehaviour
         {
             DevilDialogue.text = "Tell the devil. . Your deepest desires. . .";
             HumanDialogue.text = "Deepest desire? It's hard to say what it is.";
+            _audioManager.PlayDialogue("nokillstep1");
             DeadBtn.GetComponentInChildren<TMP_Text>().text = "I desire your blood.";
             NoDeadBtn.GetComponentInChildren<TMP_Text>().text = "I desire more. . .";
             step++;
@@ -74,6 +79,7 @@ public class DialogueChoice : MonoBehaviour
         {
             DevilDialogue.text = "OK. . Come closer. . human.";
             HumanDialogue.text = "well. .";
+            _audioManager.PlayDialogue("nokillstep2");
             DeadBtn.GetComponentInChildren<TMP_Text>().text = "I'd rather kill you.";
             NoDeadBtn.GetComponentInChildren<TMP_Text>().text = "You know me. . .";
             step++;

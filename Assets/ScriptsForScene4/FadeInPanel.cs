@@ -10,6 +10,8 @@ public class FadeInPanel : MonoBehaviour
 
     public string TransToScene = "001";
 
+    public GameObject ToNextBtn;
+
     void Start()
     {
         // 获取CanvasGroup组件，如果Panel上没有，就添加一个
@@ -21,6 +23,8 @@ public class FadeInPanel : MonoBehaviour
 
         // 初始设置透明度为0（完全透明）
         canvasGroup.alpha = 0f;
+
+        ToNextBtn.GetComponent<Button>().onClick.AddListener(OnToNextButtonClick);
     }
 
     void Update()
@@ -38,7 +42,12 @@ public class FadeInPanel : MonoBehaviour
         if (alpha >= 1f)
         {
             enabled = false;
-            SceneManager.LoadScene(TransToScene);
+            ToNextBtn.SetActive(true);
         }
+    }
+
+    void OnToNextButtonClick()
+    {
+        SceneManager.LoadScene(TransToScene);
     }
 }
